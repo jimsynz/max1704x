@@ -42,9 +42,15 @@ defmodule Max1704x do
   The current voltage of the connected cell.
   """
   @spec current_voltage(t) :: {:ok, float} | {:error, any}
-  def current_voltage(conn) do
+  def current_voltage(%__MODULE__{conn: conn, variant: :max17040}) do
     with {:ok, <<value::unsigned-integer-big-size(12), _::bitstring>>} <- read_vcell(conn) do
       {:ok, value * 1.25 / 1000}
+    end
+  end
+
+  def current_voltage(%__MODULE__{conn: conn, variant: :max17041}) do
+    with {:ok, <<value::unsigned-integer-big-size(12), _::bitstring>>} <- read_vcell(conn) do
+      {:ok, value * 2.5 / 1000}
     end
   end
 
