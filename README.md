@@ -13,7 +13,7 @@ This library uses the [Wafer](https://harton.dev/james/wafer) project connect to
 Example using [Elixir Circuits](https://hex.pm/packages/circuits_i2c)
 
     iex> {:ok, conn} = Wafer.Driver.CircuitsI2C.acquire(bus: "i2c-1", address: 0x36)
-    ...> {:ok, conn} = Max1704x.acquire(conn)
+    ...> {:ok, conn} = Max1704x.acquire(conn, 0)
     ...> Max1704x.current_voltage(conn)
     {:ok, 4.165}
 
