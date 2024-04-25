@@ -43,7 +43,14 @@ defmodule Max1704x.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      # Required
+      {:spark, "~> 2.1"},
+      {:wafer, "~> 1.0"},
+
+      # Optional
       {:circuits_i2c, "< 3.0.0", optional: true},
+
+      # Dev/test
       {:credo, "~> 1.6", only: ~w[dev test]a, runtime: false},
       {:dialyxir, "~> 1.4", only: ~w[dev test]a, runtime: false},
       {:doctor, "~> 0.21", only: ~w[dev test]a, runtime: false},
@@ -52,8 +59,7 @@ defmodule Max1704x.MixProject do
       {:ex_check, "~> 0.16", only: ~w[dev test]a, runtime: false},
       {:ex_doc, "~> 0.30", only: ~w[dev test]a, runtime: false},
       {:git_ops, "~> 2.4", only: ~w[dev test]a, runtime: false},
-      {:mimic, "~> 1.5", only: :test},
-      {:wafer, "~> 1.0"}
+      {:mimic, "~> 1.5", only: :test}
     ]
   end
 end

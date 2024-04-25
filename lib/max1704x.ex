@@ -3,26 +3,40 @@ defmodule Max1704x do
   MAX17040 AND MAX17041 Driver using Wafer.
   """
 
-  @derive Wafer.I2C
+  @derive [Wafer.I2C, Wafer.Chip]
   defstruct [:conn, :variant]
   alias Wafer.Conn
   import Max1704x.Registers
+  @behaviour Wafer.Conn
 
-  @type t :: %__MODULE__{conn: Conn.t()}
-  @type variant :: 0 | 1
+  @type t :: %__MODULE__{conn: Conn.t(), variant: :max17040 | :max17041}
+
+  @option_schema [
+    conn: [
+      type: :any,
+      required: true,
+      doc: "The connection to the underying I2C bus"
+    ],
+    variant: [
+      type: {:in, [:max17040, :max17041]},
+      required: true,
+      doc: "The variant of the IC being communicated with"
+    ]
+  ]
+
+  @type options :: [unquote(Spark.Options.option_typespec(@option_schema))]
 
   @doc """
   Acquire a connection to the MAX1704x device using the passed-in I2C
   connection.
-
-  The `variant` option selects which IC to use (affects voltage scaling). Use
-  `0` for MAX17040 and `1` for MAX17041.
   """
-  @spec acquire(Conn.t(), variant) :: {:ok, t} | {:error, any}
-  def acquire(conn, variant) when variant in [0, 1],
-    do: {:ok, %__MODULE__{conn: conn, variant: variant}}
-
-  def acquire(_conn, variant), do: {:error, "Invalid variant #{inspect(variant)}"}
+  @doc spark_opts: [{4, @option_schema}]
+  @spec acquire(options) :: {:ok, t} | {:error, any}
+  def acquire(options) do
+    with {:ok, opts} <- Spark.Options.validate(options, @option_schema) do
+      {:ok, %__MODULE__{conn: opts[:conn], variant: opts[:variant]}}
+    end
+  end
 
   @doc """
   The current voltage of the connected cell.
