@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.1.1](https://harton.dev/james/max1704x/compare/v0.1.0...v0.1.1) (2024-04-25)
+
+
+
+
+### Bug Fixes:
+
+* Correctly implement voltage scaling for both variants.
+
 ## [v0.1.0](https://harton.dev/james/max1704x/compare/v0.1.0...v0.1.0) (2024-04-24)
 
 

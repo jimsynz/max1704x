@@ -24,7 +24,7 @@ The `max1704x` package is [available on hex](https://hex.pm/packages/max1704x) s
 ```elixir
 def deps do
   [
-    {:max1704x, "~> 0.1.0"}
+    {:max1704x, "~> 0.1.1"}
   ]
 end
 ```
