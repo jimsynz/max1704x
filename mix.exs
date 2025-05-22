@@ -54,7 +54,6 @@ defmodule Max1704x.MixProject do
       {:credo, "~> 1.6", only: ~w[dev test]a, runtime: false},
       {:dialyxir, "~> 1.4", only: ~w[dev test]a, runtime: false},
       {:doctor, "~> 0.22", only: ~w[dev test]a, runtime: false},
-      {:earmark, "~> 1.4", only: ~w[dev test]a, runtime: false},
       {:elixir_ale, "~> 1.2", optional: true},
       {:ex_check, "~> 0.16", only: ~w[dev test]a, runtime: false},
       {:ex_doc, "~> 0.38", only: ~w[dev test]a, runtime: false},
