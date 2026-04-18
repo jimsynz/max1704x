@@ -1,6 +1,5 @@
 # Max1704x
 
-[![Build Status](https://drone.harton.dev/api/badges/james/max1704x/status.svg)](https://drone.harton.dev/james/max1704x)
 [![Hex.pm](https://img.shields.io/hexpm/v/max1704x.svg)](https://hex.pm/packages/max1704x)
 [![Hippocratic License HL3-FULL](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-FULL&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/full.html)
 
@@ -30,8 +29,7 @@ end
 ```
 
 Documentation for the latest release is always available on
-[HexDocs](https://hexdocs.pm/max1704x/) and for the `main` branch
-on [docs.harton.nz](https://docs.harton.nz/james/max1704x).
+[HexDocs](https://hexdocs.pm/max1704x/).
 
 ## Github Mirror
 
